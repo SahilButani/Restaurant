@@ -6,7 +6,6 @@ function searchFoods() {
     categoryNames = document.getElementsByClassName('Type');
     foodnames = document.getElementsByClassName('itemName');
 
-
     for (i = 0; i < foodnames.length; i++) {
         a = foodnames[i].innerText;
         b = categoryNames[i].innerText;
@@ -18,15 +17,12 @@ function searchFoods() {
     }
 }
 
-
 function searchTables() {
   var input, filter, tablenames, a, i, tableGrid, categoryNames;
   input = document.getElementById("tableSearch");
   filter = input.value.toUpperCase();
   tableGrid = document.getElementsByClassName('gridElementLeft');
   tablenames = document.getElementsByClassName('tableNo');
-
-
   for (i = 0; i < tablenames.length; i++) {
       a = tablenames[i].innerText;
       if (a.toUpperCase().indexOf(filter) > -1) {
@@ -38,14 +34,11 @@ function searchTables() {
 
 }
 
-
 var Tables = document.getElementsByClassName('gridElementLeft');
 var overlays = document.getElementsByClassName('modalOverlay');
 var itemVarieties = document.getElementsByClassName('itemTypes');
 var itemNumbers = document.getElementsByClassName('itemNos');
 var Prices = document.getElementsByClassName('itemPrices');
-
-
 
 
 var temp = 0, temporary=0;
@@ -85,12 +78,7 @@ for(i=0; i<Tables.length; i++){
         mod.appendChild(descriptors6);
         mod.appendChild(descriptors7);
 
-
-
-
         var limit = itemVarieties[i].childElementCount;
-
-
 
         for(j=0; j<limit; j++){
           var mod1 = document.createElement("div");
@@ -115,8 +103,6 @@ for(i=0; i<Tables.length; i++){
           mod3.innerText = Prices[i].children[j].innerText*itemNumbers[i].children[j].innerText;
           mod5.innerText = itemNumbers[i].children[j].innerText;
 
-
-
           mod.appendChild(mod1);
           mod.appendChild(mod2);
           mod.appendChild(mod3);
@@ -136,10 +122,8 @@ for(i=0; i<Tables.length; i++){
         total.id = "Total";
         mod.appendChild(total);
 
-
         mod.classList.add('modal-content');
         overlays[i].appendChild(mod);
-
 
         overlays[i].style.display = "block";
         Tables[i].style.backgroundColor = "yellow";
@@ -167,14 +151,8 @@ for(i=0; i<Tables.length; i++){
 
             }
 
-
-
-
         };})(num);
       }
-
-
-
 
         var addbtn = document.getElementsByClassName("Increase"+i);
         for(var num=0; num<addbtn.length; num++){
@@ -204,7 +182,6 @@ for(i=0; i<Tables.length; i++){
           if(overlays[i].children[0].children[11+(num*7)].innerText>0 && Tables[i].children[2].innerText>0 && Tables[i].children[1].innerText>0){
 
 
-
         var changer = Number(overlays[i].children[0].children[11+(num*7)].innerText);
         changer-=1;
         overlays[i].children[0].children[11+(num*7)].innerText = changer;
@@ -229,21 +206,13 @@ for(i=0; i<Tables.length; i++){
 
         }
 
-
       }
-
 
       };})(num);
     }
 
-
-
-
-
-
 };})(i);
   }
-
 
 window.onclick = function(event) {
   if (event.target == overlays[temp]) {
@@ -252,9 +221,7 @@ window.onclick = function(event) {
   }
 }
 
-
 var dragged;
-
 
 document.addEventListener("drag", function( event ) {
 
@@ -297,13 +264,8 @@ document.addEventListener("dragleave", function( event ) {
       event.target.style.background = "";
 
     }
-    //else if(event.target.className == "tableNo" || event.target.className == "Bill" ||event.target.className == "totalItems"){
-    //  event.target.parentElement.style.background = "";
-    //}
 
 }, false);
-
-
 document.addEventListener("drop", function( event ) {
 
     event.preventDefault();
@@ -316,7 +278,6 @@ document.addEventListener("drop", function( event ) {
             break;
           }
         }
-
         var targetVar = event.target;
         var temp2 = Number(event.target.children[2].innerText);
         temp2+=1;
@@ -326,10 +287,7 @@ document.addEventListener("drop", function( event ) {
         temp1+=Number(dragged.children[1].innerText);
         event.target.children[1].innerText = temp1;
 
-
-
-
-        var counter2=0, flag=0;
+       var counter2=0, flag=0;
 
         for(counter2=0; counter2<itemVarieties[counter].childElementCount; counter2++){
             if(itemVarieties[counter].children[counter2].innerText==dragged.children[0].innerText){
@@ -373,9 +331,6 @@ document.addEventListener("drop", function( event ) {
       var temp1 = Number(event.target.parentElement.children[1].innerText);
       temp1+=Number(dragged.children[1].innerText);
       event.target.parentElement.children[1].innerText = temp1;
-
-
-
 
       var counter2=0, flag=0;
 
